@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.domain.service;
 
-import com.example.demo.model.Notification;
+import com.domain.model.Notification;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

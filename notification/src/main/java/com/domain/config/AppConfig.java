@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.domain.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +18,7 @@ public class AppConfig {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+        System.out.println("RedisTemplate bean is being initialized.");
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
         template.setKeySerializer(new StringRedisSerializer());
