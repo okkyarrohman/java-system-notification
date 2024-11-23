@@ -21,17 +21,17 @@ public class NotificationController {
         return "Welcome Guys";
     }
 
-    // private final NotificationPublisher notificationPublisher;
+    private final NotificationPublisher notificationPublisher;
 
-    // public NotificationController(NotificationPublisher notificationPublisher) {
-    // this.notificationPublisher = notificationPublisher;
-    // }
+    public NotificationController(NotificationPublisher notificationPublisher) {
+        this.notificationPublisher = notificationPublisher;
+    }
 
-    // @PostMapping
-    // public String sendNotification(@RequestBody Notification notification) {
-    // notification.setId(UUID.randomUUID().toString());
-    // notification.setStatus("pending");
-    // notificationPublisher.sendNotification(notification);
-    // return "Notification sent!";
-    // }
+    @PostMapping
+    public String sendNotification(@RequestBody Notification notification) {
+        notification.setId(UUID.randomUUID().toString());
+        notification.setStatus("pending");
+        notificationPublisher.sendNotification(notification);
+        return "Notification sent!";
+    }
 }
