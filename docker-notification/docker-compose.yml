@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"  # UI management RabbitMQ
+      - "5672:5672"    # AMQP port (untuk aplikasi yang terhubung ke RabbitMQ)
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+  
+  redis:
+    image: "redis:latest"
+    container_name: redis
+    ports:
+      - "6379:6379"  # Port Redis
+    volumes:
+      - redis-data:/data
+
+volumes:
+  rabbitmq-data:
+  redis-data:
